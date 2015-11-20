@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./css/jquery.mobile.flatui.css"/>
+<link rel="stylesheet" type="text/css" href="./css/weavernest.css"/>
+ <script src="./javascripts/Three.js"></script>
+ <script src="./javascripts/plane.js"></script>
+ <script src="./javascripts/thingiview.js"></script>
+<script src="./javascripts/jquery-1.10.2.min.js"></script>
+<script src="./javascripts/jquery.mobile-1.3.1.min.js"></script>
+  <script>
+    window.onload = function() {
+
+      thingiurlbase = "./javascripts";
+      thingiview = new Thingiview("viewer");
+      thingiview.setObjectColor('#C0D8F0');
+      thingiview.initScene();
+      // thingiview.setShowPlane(true);
+      thingiview.loadSTLString(document.getElementById('stlstring').value);
+    }
+  </script>
+
+</head>
+<body ondragstart="return false;" ondrop="return false;" style="overflow:hidden;overflow-x:auto;">
+	<div data-role="page" id="page1">
+		<div id ="header" data-theme="a" data-role="header">
+			<h4 class = "title" >Axol Viewer</h4>
+			<div class="ui-btn-right" data-role="controlgroup" data-type="horizontal" data-mini="true">
+				<a onclick="windowMinimize()" data-role="button" data-iconpos="notext"
+					data-icon="minus"></a> 
+				<a onclick="windowExit()"
+					data-role="button" data-iconpos="notext" data-icon="delete"></a>
+			</div>
+		</div>
+
+		<div data-role="content" >
+			<div id="viewer" style="width:100%;min-height:300px"></div>
+			<div style="text-align: center;">
+				<div data-mini="true" data-theme="a" data-type="horizontal"
+					data-role="controlgroup">
+					<a onclick="thingiview.setCameraZoom(5);" title="확대" data-iconpos="notext" data-theme="a"
+						data-icon="plus" data-role="button" rel="external"></a>
+					<a onclick="thingiview.setCameraZoom(-5);" title="축소" data-iconpos="notext" data-theme="a"
+						data-icon="minus" data-role="button" rel="external"></a>
+					<a title="좌로 회전" data-iconpos="notext" data-theme="a"
+						data-icon="back" data-role="button" rel="external"></a>
+					<a title="우로 회전" data-iconpos="notext" data-theme="a"
+						data-icon="forward" data-role="button" rel="external"></a>
+				</div>
+				
+				<div data-theme="b" data-type="horizontal"
+					data-role="controlgroup">
+					<a title="이전 모델" data-iconpos="notext" data-theme="b"
+						data-icon="arrow-l" data-role="button" rel="external"></a>
+					<a title="파일 열기" data-iconpos="notext" data-theme="b"
+						data-icon="search" data-role="button" rel="external"></a>	
+					<a title="다음 모델" data-iconpos="notext" data-theme="b"
+						data-icon="arrow-r" data-role="button" rel="external"></a>
+					
+				</div>
+			</div>	
+				
+			</div>
+		</div>
+	</div>
+	
+	<div id="sidebar" style="display:none;">
+<textarea style="display:none;"id="stlstring" >
+solid OpenSCAD_Model
+  facet normal -1.000000 -0.000000 -0.000000
+    outer loop
+      vertex -5.000000 -5.000000 0.000000
+      vertex -5.000000 -5.000000 10.000000
+      vertex -5.000000 5.000000 0.000000
+    endloop
+  endfacet
+  facet normal -1.000000 0.000000 0.000000
+    outer loop
+      vertex -5.000000 5.000000 0.000000
+      vertex -5.000000 -5.000000 10.000000
+      vertex -5.000000 5.000000 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -1.000000 0.000000
+    outer loop
+      vertex -5.000000 -5.000000 10.000000
+      vertex -5.000000 -5.000000 0.000000
+      vertex 5.000000 -5.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -1.000000 0.000000
+    outer loop
+      vertex 5.000000 -5.000000 10.000000
+      vertex -5.000000 -5.000000 10.000000
+      vertex 5.000000 -5.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -0.000000 -1.000000
+    outer loop
+      vertex 1.246980 1.563663 0.000000
+      vertex -5.000000 5.000000 0.000000
+      vertex 5.000000 5.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -0.000000 -1.000000
+    outer loop
+      vertex -5.000000 -5.000000 0.000000
+      vertex -5.000000 5.000000 0.000000
+      vertex -1.801938 0.867767 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex -5.000000 -5.000000 0.000000
+      vertex -1.801938 0.867767 0.000000
+      vertex -1.801938 -0.867767 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex -5.000000 -5.000000 0.000000
+      vertex -1.801938 -0.867767 0.000000
+      vertex -0.445042 -1.949856 0.000000
+    endloop
+  endfacet
+  facet normal -0.000000 0.000000 -1.000000
+    outer loop
+      vertex -5.000000 -5.000000 0.000000
+      vertex -0.445042 -1.949856 0.000000
+      vertex 5.000000 -5.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex 1.246980 -1.563663 0.000000
+      vertex 5.000000 -5.000000 0.000000
+      vertex -0.445042 -1.949856 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex 2.000000 0.000000 0.000000
+      vertex 5.000000 -5.000000 0.000000
+      vertex 1.246980 -1.563663 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 -1.000000
+    outer loop
+      vertex 5.000000 -5.000000 0.000000
+      vertex 2.000000 0.000000 0.000000
+      vertex 5.000000 5.000000 0.000000
+    endloop
+  endfacet
+  facet normal -0.000000 -0.000000 -1.000000
+    outer loop
+      vertex -0.445042 1.949856 0.000000
+      vertex -5.000000 5.000000 0.000000
+      vertex 1.246980 1.563663 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -0.000000 -1.000000
+    outer loop
+      vertex 2.000000 0.000000 0.000000
+      vertex 1.246980 1.563663 0.000000
+      vertex 5.000000 5.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -0.000000 -1.000000
+    outer loop
+      vertex -1.801938 0.867767 0.000000
+      vertex -5.000000 5.000000 0.000000
+      vertex -0.445042 1.949856 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 1.000000 0.000000
+    outer loop
+      vertex -5.000000 5.000000 0.000000
+      vertex -5.000000 5.000000 10.000000
+      vertex 5.000000 5.000000 0.000000
+    endloop
+  endfacet
+  facet normal 0.000000 1.000000 0.000000
+    outer loop
+      vertex 5.000000 5.000000 0.000000
+      vertex -5.000000 5.000000 10.000000
+      vertex 5.000000 5.000000 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -0.000000 1.000000
+    outer loop
+      vertex -0.445042 -1.949856 10.000000
+      vertex -5.000000 -5.000000 10.000000
+      vertex 5.000000 -5.000000 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -0.000000 1.000000
+    outer loop
+      vertex -5.000000 5.000000 10.000000
+      vertex -5.000000 -5.000000 10.000000
+      vertex -1.801938 -0.867767 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex -5.000000 5.000000 10.000000
+      vertex -1.801938 -0.867767 10.000000
+      vertex -1.801938 0.867767 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 5.000000 5.000000 10.000000
+      vertex -5.000000 5.000000 10.000000
+      vertex -0.445042 1.949856 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 5.000000 5.000000 10.000000
+      vertex 1.246980 1.563663 10.000000
+      vertex 5.000000 -5.000000 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 5.000000 5.000000 10.000000
+      vertex -0.445042 1.949856 10.000000
+      vertex 1.246980 1.563663 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex 1.246980 1.563663 10.000000
+      vertex 2.000000 0.000000 10.000000
+      vertex 5.000000 -5.000000 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -0.000000 1.000000
+    outer loop
+      vertex 2.000000 0.000000 10.000000
+      vertex 1.246980 -1.563663 10.000000
+      vertex 5.000000 -5.000000 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -0.000000 1.000000
+    outer loop
+      vertex 1.246980 -1.563663 10.000000
+      vertex -0.445042 -1.949856 10.000000
+      vertex 5.000000 -5.000000 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 -0.000000 1.000000
+    outer loop
+      vertex -1.801938 -0.867767 10.000000
+      vertex -5.000000 -5.000000 10.000000
+      vertex -0.445042 -1.949856 10.000000
+    endloop
+  endfacet
+  facet normal 0.000000 0.000000 1.000000
+    outer loop
+      vertex -1.801938 0.867767 10.000000
+      vertex -0.445042 1.949856 10.000000
+      vertex -5.000000 5.000000 10.000000
+    endloop
+  endfacet
+  facet normal 1.000000 0.000000 -0.000000
+    outer loop
+      vertex 5.000000 -5.000000 10.000000
+      vertex 5.000000 -5.000000 0.000000
+      vertex 5.000000 5.000000 0.000000
+    endloop
+  endfacet
+  facet normal 1.000000 0.000000 0.000000
+    outer loop
+      vertex 5.000000 5.000000 10.000000
+      vertex 5.000000 -5.000000 10.000000
+      vertex 5.000000 5.000000 0.000000
+    endloop
+  endfacet
+  facet normal 1.000000 0.000000 0.000000
+    outer loop
+      vertex -1.801938 0.867767 0.000000
+      vertex -1.801938 0.867767 10.000000
+      vertex -1.801938 -0.867767 10.000000
+    endloop
+  endfacet
+  facet normal 1.000000 0.000000 0.000000
+    outer loop
+      vertex -1.801938 -0.867767 0.000000
+      vertex -1.801938 0.867767 0.000000
+      vertex -1.801938 -0.867767 10.000000
+    endloop
+  endfacet
+  facet normal 0.623490 -0.781831 0.000000
+    outer loop
+      vertex -0.445042 1.949856 0.000000
+      vertex -0.445042 1.949856 10.000000
+      vertex -1.801938 0.867767 10.000000
+    endloop
+  endfacet
+  facet normal 0.623490 -0.781831 0.000000
+    outer loop
+      vertex -1.801938 0.867767 0.000000
+      vertex -0.445042 1.949856 0.000000
+      vertex -1.801938 0.867767 10.000000
+    endloop
+  endfacet
+  facet normal -0.222521 -0.974928 -0.000000
+    outer loop
+      vertex 1.246980 1.563663 0.000000
+      vertex 1.246980 1.563663 10.000000
+      vertex -0.445042 1.949856 10.000000
+    endloop
+  endfacet
+  facet normal -0.222521 -0.974928 -0.000000
+    outer loop
+      vertex -0.445042 1.949856 0.000000
+      vertex 1.246980 1.563663 0.000000
+      vertex -0.445042 1.949856 10.000000
+    endloop
+  endfacet
+  facet normal -0.900969 -0.433884 0.000000
+    outer loop
+      vertex 2.000000 0.000000 10.000000
+      vertex 1.246980 1.563663 10.000000
+      vertex 2.000000 0.000000 0.000000
+    endloop
+  endfacet
+  facet normal -0.900969 -0.433884 0.000000
+    outer loop
+      vertex 2.000000 0.000000 0.000000
+      vertex 1.246980 1.563663 10.000000
+      vertex 1.246980 1.563663 0.000000
+    endloop
+  endfacet
+  facet normal -0.900969 0.433884 0.000000
+    outer loop
+      vertex 2.000000 0.000000 10.000000
+      vertex 2.000000 0.000000 0.000000
+      vertex 1.246980 -1.563663 10.000000
+    endloop
+  endfacet
+  facet normal -0.900969 0.433884 0.000000
+    outer loop
+      vertex 1.246980 -1.563663 10.000000
+      vertex 2.000000 0.000000 0.000000
+      vertex 1.246980 -1.563663 0.000000
+    endloop
+  endfacet
+  facet normal -0.222521 0.974928 0.000000
+    outer loop
+      vertex 1.246980 -1.563663 10.000000
+      vertex 1.246980 -1.563663 0.000000
+      vertex -0.445042 -1.949856 10.000000
+    endloop
+  endfacet
+  facet normal -0.222521 0.974928 0.000000
+    outer loop
+      vertex -0.445042 -1.949856 10.000000
+      vertex 1.246980 -1.563663 0.000000
+      vertex -0.445042 -1.949856 0.000000
+    endloop
+  endfacet
+  facet normal 0.623490 0.781831 -0.000000
+    outer loop
+      vertex -0.445042 -1.949856 10.000000
+      vertex -0.445042 -1.949856 0.000000
+      vertex -1.801938 -0.867767 10.000000
+    endloop
+  endfacet
+  facet normal 0.623490 0.781831 -0.000000
+    outer loop
+      vertex -1.801938 -0.867767 10.000000
+      vertex -0.445042 -1.949856 0.000000
+      vertex -1.801938 -0.867767 0.000000
+    endloop
+  endfacet
+endsolid OpenSCAD_Model
+</textarea>
+</div>
+</body>
+</html>
